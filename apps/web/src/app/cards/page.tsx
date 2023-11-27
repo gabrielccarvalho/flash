@@ -55,7 +55,7 @@ export default function Card({
             </span>
           </button>
         ) : (
-          <div className="flex flex-row py-4 items-center justify-around rounded-md mt-12 w-full lg:max-w-xl flex-wrap gap-y-4">
+          <div className="flex flex-row py-2 items-center justify-around rounded-md mt-12 w-full lg:max-w-xl flex-wrap gap-y-4">
             <button
               className="bg-difficulty-easy text-mirage-50 font-bold px-4 py-2 rounded-md"
               onClick={() => {
