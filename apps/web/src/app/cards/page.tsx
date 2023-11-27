@@ -4,6 +4,7 @@ import { ChevronLeft } from 'lucide-react'
 import Link from 'next/link'
 import { ProgressBar } from '../../components/progress-bar'
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function Card({
   searchParams,
@@ -20,32 +21,47 @@ export default function Card({
           <ChevronLeft className="w-8 h-8 text-mirage-50" />
         </Link>
 
-        <span className="text-lg leading-heading font-bold text-mirage-50">
+        <span className="text-lg leading-heading font-bold text-mirage-50 flex-1 text-center">
           Lorem ipsum dolor
         </span>
       </div>
 
-      <main className="flex flex-col items-center flex-1 justify-center px-10">
+      <main className="flex flex-col items-center flex-1 justify-around px-10">
         <div className="flex flex-col gap-4 w-11/12 max-w-xl pb-8">
           <ProgressBar progress={75} />
         </div>
-        <div className="flex flex-col w-full max-w-3xl h-1/2 bg-marine-50 rounded-md shadow-lg z-50 items-center justify-center p-8">
-          {!isRevealed ? (
-            <p className="text-md font-semibold leading-heading text-mirage-950 text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              auctor diam a eros aliquet
-            </p>
-          ) : (
-            <p className="text-md font-semibold leading-heading text-mirage-950 text-center">
-              RESPOSTA RESPOSTA RESPOSTA RESPOSTA RESPOSTA
-            </p>
-          )}
+
+        <div className="flex flex-col w-full h-1/2 items-center">
+          <div className="flex flex-col flex-1 w-full max-w-3xl bg-marine-50 rounded-md shadow-lg z-50 items-center justify-center p-8">
+            {!isRevealed ? (
+              <div className="flex flex-col items-center justify-around flex-1">
+                <p className="text-md font-semibold leading-heading text-mirage-950 text-center">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vivamus auctor diam a eros aliquet auctor diam a eros aliquet
+                  auctor diam a eros aliquet auctor diam a eros aliquet
+                </p>
+                <Image
+                  src="https://img.freepik.com/free-photo/sunrise-bali-jungle_1385-1644.jpg"
+                  alt="card image"
+                  width={300}
+                  height={0}
+                  className="rounded-md"
+                />
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-around flex-1">
+                <p className="text-md font-semibold leading-heading text-mirage-950 text-center">
+                  RESPOSTA RESPOSTA RESPOSTA RESPOSTA RESPOSTA
+                </p>
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col w-11/12 max-w-2xl h-6 bg-marine-50/75 rounded-b-md -mt-2" />
         </div>
-        <div className="flex flex-col w-11/12 max-w-2xl h-6 bg-marine-50/75 rounded-b-md -mt-2" />
 
         {!isRevealed ? (
           <button
-            className="flex flex-row bg-marine-50 py-4 px-16 items-center justify-center rounded-md mt-12"
+            className="flex flex-row bg-marine-50 py-4 px-16 items-center justify-center rounded-md"
             onClick={() => {
               setIsRevealed(true)
             }}
@@ -55,7 +71,7 @@ export default function Card({
             </span>
           </button>
         ) : (
-          <div className="flex flex-row py-2 items-center justify-around rounded-md mt-12 w-full lg:max-w-xl flex-wrap gap-y-4">
+          <div className="flex flex-row items-center justify-around rounded-md w-full lg:max-w-xl flex-wrap gap-y-2">
             <button
               className="bg-difficulty-easy text-mirage-50 font-bold px-4 py-2 rounded-md"
               onClick={() => {
