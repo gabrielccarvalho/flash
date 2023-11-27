@@ -37,5 +37,11 @@ export const colors = {
     800: '#5d4d86',
     900: '#4d436c',
     950: '#1b1725',
+  },
+  difficulty: {
+    easy: '#14b8a6',
+    good: '#eab308',
+    hard: '#e11d48',
+    again: '#1b1725',
   }
 }

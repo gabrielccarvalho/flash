@@ -1,7 +1,8 @@
+'use client'
+
 import React, { useCallback, useEffect, useState } from 'react'
-import useEmblaCarousel, { EmblaCarouselType } from 'embla-carousel-react'
-import { MoveRight } from 'lucide-react'
-import { ProgressCircle } from './progress-circle'
+import useEmblaCarousel from 'embla-carousel-react'
+import { DeckCard } from './deck-card'
 
 type CarouselPropType = {
   slides: {
@@ -12,6 +13,7 @@ type CarouselPropType = {
     progress: number
     totalCards: number
     completedCards: number
+    cta: string
   }[]
 }
 
@@ -48,42 +50,29 @@ export const Carousel: React.FC<CarouselPropType> = (props) => {
         <div className="flex">
           {slides.map(
             (
-              { tag, title, description, progress, totalCards, completedCards },
+              {
+                tag,
+                title,
+                description,
+                progress,
+                totalCards,
+                completedCards,
+                cta,
+              },
               index,
             ) => (
-              <div
+              <DeckCard
                 key={index}
-                // className="flex flex-col gap-5 py-6 px-5 rounded-lg border border-mirage-100 shadow-lg"
-                className="relative flex flex-none flex-wrap lg:flex-nowrap w-full mx-10 py-6 px-5 rounded-lg border border-mirage-100 shadow-lg"
-              >
-                <span className="font-bold text-sm text-mirage-600 leading-heading pb-2">
-                  {tag.toUpperCase()}
-                </span>
-                <div className="space-y-2">
-                  <h2 className="font-bold leading-heading">{title}</h2>
-                  <p className="text-smoke-800 leading-base text-sm">
-                    {description}
-                  </p>
-
-                  <div className="flex items-center justify-between pt-2">
-                    <a
-                      href="#"
-                      className="py-3 px-5 flex items-center gap-2 font-bold text-sm bg-marine-500 rounded-md text-mirage-50"
-                    >
-                      Accessar coleção
-                      <MoveRight className="w-5 h-5" />
-                    </a>
-                    <div className="flex items-center gap-2">
-                      <div className="2-6 h-6">
-                        <ProgressCircle progress={progress} />
-                      </div>
-                      <span className="text-smoke-600 text-sm leading-base">
-                        {completedCards}/{totalCards}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                {...{
+                  tag,
+                  title,
+                  description,
+                  cta,
+                  progress,
+                  totalCards,
+                  completedCards,
+                }}
+              />
             ),
           )}
         </div>

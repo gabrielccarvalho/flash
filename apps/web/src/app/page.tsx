@@ -1,38 +1,39 @@
-'use client'
-
 import Image from 'next/image'
-import { Carousel } from '../components/Carousel'
+import { Carousel } from '../components/carousel'
 
 const data = [
   {
     id: '84fdf5bd-39f0-4819-ad07-b16ed757d850',
-    tag: 'Javascript',
-    title: 'Fundamentos do JavaScript',
+    tag: 'Lorem ipsum',
+    title: 'Lorem ipsum dolor',
     description:
-      'Lorem Ipsum is placeholder text commonly used in the design and printing industry. It is used to fill in spaces where content will eventually be placed.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor diam a eros aliquet, id vehicula ante fermentum. Sed at eleifend tellus. Nulla in sagittis ligula. Phasellus elementum dolor ut erat bibendum',
     totalCards: 16,
     completedCards: 8,
     progress: 50,
+    cta: '/cards?deck=84fdf5bd-39f0-4819-ad07-b16ed757d850',
   },
   {
     id: '84fdf5bd-39f0-4819-ad07-b16ed757d850',
-    tag: 'TypeScript',
-    title: 'Fundamentos do TypeScript',
+    tag: 'Lorem ipsum',
+    title: 'Lorem ipsum dolor',
     description:
-      'Lorem Ipsum is placeholder text commonly used in the design and printing industry. It is used to fill in spaces where content will eventually be placed.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor diam a eros aliquet, id vehicula ante fermentum. Sed at eleifend tellus. Nulla in sagittis ligula. Phasellus elementum dolor ut erat bibendum',
     totalCards: 32,
     completedCards: 8,
     progress: 25,
+    cta: '/cards?deck=84fdf5bd-39f0-4819-ad07-b16ed757d850',
   },
   {
     id: '84fdf5bd-39f0-4819-ad07-b16ed757d850',
-    tag: 'React',
-    title: 'Fundamentos do React',
+    tag: 'Lorem ipsum',
+    title: 'Lorem ipsum dolor',
     description:
-      'Lorem Ipsum is placeholder text commonly used in the design and printing industry. It is used to fill in spaces where content will eventually be placed.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus auctor diam a eros aliquet, id vehicula ante fermentum. Sed at eleifend tellus. Nulla in sagittis ligula. Phasellus elementum dolor ut erat bibendum',
     totalCards: 8,
     completedCards: 8,
     progress: 100,
+    cta: '/cards?deck=84fdf5bd-39f0-4819-ad07-b16ed757d850',
   },
 ]
 
@@ -53,41 +54,7 @@ export default function Home() {
       </div>
 
       <main className="p-6 flex flex-col gap-4">
-        <span className="text-lg font-bold leading-heading">Coleções</span>
-
-        {/* <div className="flex flex-col gap-5 py-6 px-5 rounded-lg border border-mirage-100 shadow-lg">
-          <span className="font-bold text-sm text-mirage-600 leading-heading">
-            JAVASCRIPT
-          </span>
-          <div className="space-y-2">
-            <h2 className="font-bold leading-heading">
-              Fundamentos do JavaScript
-            </h2>
-            <p className="text-smoke-400 leading-base text-sm">
-              Lorem Ipsum is placeholder text commonly used in the design and
-              printing industry. It is used to fill in spaces where content will
-              eventually be placed.
-            </p>
-
-            <div className="flex items-center justify-between">
-              <a
-                href="#"
-                className="py-3 px-5 flex items-center gap-2 font-bold text-sm bg-marine-500 rounded-md text-mirage-50"
-              >
-                Accessar coleção
-                <MoveRight className="w-5 h-5" />
-              </a>
-              <div className="flex items-center gap-2">
-                <div className="2-6 h-6">
-                  <ProgressCircle progress={50} />
-                </div>
-                <span className="text-smoke-600 text-sm leading-base">
-                  8/16
-                </span>
-              </div>
-            </div>
-          </div>
-        </div> */}
+        <span className="text-lg font-bold leading-heading">Decks</span>
 
         <Carousel slides={data} />
       </main>

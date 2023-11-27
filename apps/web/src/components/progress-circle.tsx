@@ -1,4 +1,4 @@
-export interface ProgressCircleProps {
+type ProgressCircleProps = {
   /*
    * The progress value in percentage to complete the circle.
    */
