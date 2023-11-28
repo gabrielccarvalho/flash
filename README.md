@@ -2,6 +2,12 @@
 
 This app allows users to create, manage and resolve flashcards.
 
+## Preview
+
+<div style="width: 100%;">
+   <img src='./public/first-screenshot.png' style="width:40%; padding-right: 10px;" />
+   <img src='./public/second-screenshot.png' style="width:40%; padding-left: 10px;" />
+</div>
 ## Features
 
 -  User registration and authentication
@@ -15,7 +21,6 @@ This app allows users to create, manage and resolve flashcards.
 To run this app locally, you need to have the following installed:
 
 -  Node.js
--  MongoDB
 -  Docker
 
 ## Getting Started
