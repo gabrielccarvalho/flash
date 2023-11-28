@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ProgressBar } from '../../components/progress-bar'
 import { useState } from 'react'
 import Image from 'next/image'
+// import { completeCard } from '../../api/cards'
 
 export default function Card({
   searchParams,
@@ -13,6 +14,15 @@ export default function Card({
 }) {
   const [isRevealed, setIsRevealed] = useState(false)
   console.log(searchParams.deck)
+
+  // function handleGraduateCard(difficulty: { difficulty: string }) {
+  //   // hide the answer
+  //   setIsRevealed(false)
+  //   // jump to next card
+  //   /* TODO */
+  //   // update progress
+  //   // completeCard(cardId, difficulty)
+  // }
 
   return (
     <div className="bg-gradient-to-t from-marine-600 to-marine-500 pt-8 gap-8 flex flex-col h-screen">

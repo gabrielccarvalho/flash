@@ -7,13 +7,11 @@ import { DeckCard } from './deck-card'
 type CarouselPropType = {
   slides: {
     id: string
-    tag: string
+    name: string
     title: string
     description: string
-    progress: number
-    totalCards: number
-    completedCards: number
-    cta: string
+    learningCard: any[]
+    graduatedCard: any[]
   }[]
 }
 
@@ -23,6 +21,8 @@ export const Carousel: React.FC<CarouselPropType> = (props) => {
     align: 'start',
     loop: false,
     skipSnaps: false,
+    dragFree: false,
+    containScroll: 'trimSnaps',
   })
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
@@ -45,35 +45,38 @@ export const Carousel: React.FC<CarouselPropType> = (props) => {
   }, [emblaApi, setScrollSnaps, onSelect])
 
   return (
-    <div className="overflow-hidden bg-smoke-50">
+    <div className="overflow-hidden bg-smoke-50 max">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="flex">
           {slides.map(
             (
-              {
-                tag,
-                title,
-                description,
-                progress,
-                totalCards,
-                completedCards,
-                cta,
-              },
+              { id, name, title, description, learningCard, graduatedCard },
               index,
-            ) => (
-              <DeckCard
-                key={index}
-                {...{
-                  tag,
-                  title,
-                  description,
-                  cta,
-                  progress,
-                  totalCards,
-                  completedCards,
-                }}
-              />
-            ),
+            ) => {
+              const cards = [...learningCard, ...graduatedCard]
+              const totalCards = cards.length
+              const completedCards = cards.filter(
+                (card) => card.attemptedTimes > 0,
+              ).length
+              const progress =
+                completedCards === 0 ? 0 : (completedCards / totalCards) * 100
+
+              return (
+                <DeckCard
+                  key={index}
+                  {...{
+                    id,
+                    name,
+                    title,
+                    description,
+                    progress,
+                    totalCards,
+                    completedCards,
+                    cta: id,
+                  }}
+                />
+              )
+            },
           )}
         </div>
       </div>
